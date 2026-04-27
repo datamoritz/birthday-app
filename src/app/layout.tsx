@@ -8,19 +8,24 @@ const sg = Space_Grotesk({
   variable: "--font-sg",
 });
 
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
+  ?? (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3020");
+
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL ?? "http://localhost:3020"),
+  metadataBase: new URL(baseUrl),
   title: "Moritz Birthday Bash",
   description: "Drop your song, movie & drink picks for Moritz' Birthday Bash — April 29, Denver.",
   openGraph: {
     title: "Moritz Birthday Bash",
     description: "Drop your picks before the party starts — April 29, Denver.",
     type: "website",
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Moritz Birthday Bash" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Moritz Birthday Bash",
     description: "Drop your picks before the party starts — April 29, Denver.",
+    images: ["/og-image.jpg"],
   },
 };
 
