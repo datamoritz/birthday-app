@@ -8,8 +8,7 @@ const sg = Space_Grotesk({
   variable: "--font-sg",
 });
 
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
-  ?? (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3020");
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? "https://birthday-app-seven-coral.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
