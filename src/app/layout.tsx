@@ -18,6 +18,7 @@ export const metadata: Metadata = {
     title: "Moritz Birthday Bash",
     description: "Drop your picks before the party starts — April 29, Denver.",
     type: "website",
+    url: "https://birthday-app-seven-coral.vercel.app",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Moritz Birthday Bash" }],
   },
   twitter: {
