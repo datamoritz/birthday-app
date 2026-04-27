@@ -61,8 +61,10 @@ export default function BirthdayForm() {
     }
 
     setStatus("success");
-    setMessage("Locked in. Moritz now has your party intel.");
   }
+
+  const partyDate = new Date("2026-04-29T00:00:00");
+  const daysLeft = Math.max(0, Math.ceil((partyDate.getTime() - Date.now()) / 86_400_000));
 
   return (
     <main>
@@ -114,6 +116,32 @@ export default function BirthdayForm() {
         </div>
       </section>
 
+      {status === "success" ? (
+        <section className="success-screen">
+          <div className="success-card">
+            <div className="success-check" aria-hidden="true">
+              <svg viewBox="0 0 52 52" fill="none">
+                <circle className="success-check__circle" cx="26" cy="26" r="24" />
+                <path className="success-check__tick" d="M14 26 l8 9 l16-17" />
+              </svg>
+            </div>
+            <h2 className="success-title">Sent!</h2>
+            <p className="success-sub">
+              Your favorites are on their way to Moritz. Get ready for some games and fun.
+            </p>
+            {daysLeft > 0 ? (
+              <div className="success-countdown">
+                <span className="success-countdown__num">{daysLeft}</span>
+                <span className="success-countdown__label">{daysLeft === 1 ? "day" : "days"} to go</span>
+              </div>
+            ) : (
+              <div className="success-countdown">
+                <span className="success-countdown__label">It&apos;s party time!</span>
+              </div>
+            )}
+          </div>
+        </section>
+      ) : (
       <section className="form-section">
         <form className="party-form" onSubmit={submitForm}>
           <div className="form-block">
@@ -201,6 +229,7 @@ export default function BirthdayForm() {
           {message ? <p className={`status status--${status}`}>{message}</p> : null}
         </form>
       </section>
+      )}
     </main>
   );
 }

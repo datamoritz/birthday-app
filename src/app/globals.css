@@ -603,6 +603,142 @@ textarea:focus {
   }
 }
 
+/* ===== SUCCESS SCREEN ===== */
+
+.success-screen {
+  background: var(--bg);
+  min-height: 65vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 20px 80px;
+}
+
+.success-card {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 24px;
+  animation: success-rise 0.65s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.success-check {
+  width: 88px;
+  height: 88px;
+}
+
+.success-check svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.success-check__circle {
+  stroke: var(--orange);
+  stroke-width: 2;
+  stroke-dasharray: 151;
+  stroke-dashoffset: 151;
+  animation: stroke-draw 0.55s cubic-bezier(0.65, 0, 0.45, 1) 0.15s forwards;
+}
+
+.success-check__tick {
+  stroke: var(--gold);
+  stroke-width: 3.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 36;
+  stroke-dashoffset: 36;
+  animation: stroke-draw 0.38s cubic-bezier(0.65, 0, 0.45, 1) 0.65s forwards;
+}
+
+.success-title {
+  font-size: clamp(2.6rem, 11vw, 4rem);
+  font-weight: 800;
+  line-height: 0.9;
+  margin: 0;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-image: linear-gradient(90deg, #ff5fa2, #ffd23f, #3abfff, #ff5fa2);
+  background-size: 240% 100%;
+  animation:
+    fade-up 0.45s ease 0.9s both,
+    title-rainbow 3.5s ease-in-out 1.4s infinite alternate;
+}
+
+.success-sub {
+  margin: 0;
+  max-width: 280px;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.55;
+  animation: fade-up 0.45s ease 1.05s both;
+}
+
+.success-countdown {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 22px 40px;
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  background: var(--surface);
+  animation: fade-up 0.45s ease 1.2s both;
+}
+
+.success-countdown__num {
+  font-size: 4.5rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--orange);
+  background: linear-gradient(135deg, var(--orange), var(--gold));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.success-countdown__label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+@keyframes stroke-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes success-rise {
+  from {
+    opacity: 0;
+    transform: translateY(28px) scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @keyframes paraglider-flight {
   0% {
     transform: translate3d(-12vw, 0, 0) rotate(-5deg) scale(0.86);

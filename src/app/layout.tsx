@@ -9,8 +9,19 @@ const sg = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL ?? "http://localhost:3020"),
   title: "Moritz Birthday Bash",
-  description: "Song, movie, show, and drink picks for Moritz Birthday Bash.",
+  description: "Drop your song, movie & drink picks for Moritz' Birthday Bash — April 29, Denver.",
+  openGraph: {
+    title: "Moritz Birthday Bash",
+    description: "Drop your picks before the party starts — April 29, Denver.",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Moritz Birthday Bash",
+    description: "Drop your picks before the party starts — April 29, Denver.",
+  },
 };
 
 export const viewport: Viewport = {
