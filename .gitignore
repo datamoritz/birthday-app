@@ -1,0 +1,11 @@
+.next
+node_modules
+data/
+backend/data/submissions.json
+.vercel
+.env*.local
+npm-debug.log*
+.DS_Store
+tsconfig.tsbuildinfo
+__pycache__
+*.pyc
